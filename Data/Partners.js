@@ -1,0 +1,58 @@
+var Partners =[
+    {
+        Id:1,
+        Name: "Mountain Park",
+        ImgUrl: "assets/images/partners/partner-1.png",
+        HoverImgUrl: "assets/images/partners/partner-hover-1.png",
+        Content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Proin nibh nisl condimentum id venenatis. In ornare quam viverra orci sagittis eu volutpat odio facilisis. Vel quam elementum pulvinar etiam non quam lacus suspendisse. Interdum posuere lorem ipsum dolor sit amet consectetur adipiscing. Mauris pharetra et ultrices neque ornare aenean. Adipiscing enim eu turpis egestas pretium. Maecenas sed enim ut sem. Mi proin sed libero enim sed. Est placerat in egestas erat imperdiet sed. Id neque aliquam vestibulum morbi blandit cursus risus. Sed tempus urna et pharetra pharetra. Leo in vitae turpis massa sed. Sem et tortor consequat id porta. Euismod elementum nisi quis eleifend quam adipiscing vitae. At lectus urna duis convallis convallis tellus id interdum.",
+    },
+    {
+        Id:2,
+        Name: "Wildland",
+        ImgUrl: "assets/images/partners/partner-2.png",
+        HoverImgUrl: "assets/images/partners/partner-hover-2.png",
+        Content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Proin nibh nisl condimentum id venenatis. In ornare quam viverra orci sagittis eu volutpat odio facilisis. Vel quam elementum pulvinar etiam non quam lacus suspendisse. Interdum posuere lorem ipsum dolor sit amet consectetur adipiscing. Mauris pharetra et ultrices neque ornare aenean. Adipiscing enim eu turpis egestas pretium. Maecenas sed enim ut sem. Mi proin sed libero enim sed. Est placerat in egestas erat imperdiet sed. Id neque aliquam vestibulum morbi blandit cursus risus. Sed tempus urna et pharetra pharetra. Leo in vitae turpis massa sed. Sem et tortor consequat id porta. Euismod elementum nisi quis eleifend quam adipiscing vitae. At lectus urna duis convallis convallis tellus id interdum.",
+    },
+    {
+        Id:3,
+        Name: "Pinetree",
+        ImgUrl: "assets/images/partners/partner-3.png",
+        HoverImgUrl: "assets/images/partners/partner-hover-3.png",
+        Content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Proin nibh nisl condimentum id venenatis. In ornare quam viverra orci sagittis eu volutpat odio facilisis. Vel quam elementum pulvinar etiam non quam lacus suspendisse. Interdum posuere lorem ipsum dolor sit amet consectetur adipiscing. Mauris pharetra et ultrices neque ornare aenean. Adipiscing enim eu turpis egestas pretium. Maecenas sed enim ut sem. Mi proin sed libero enim sed. Est placerat in egestas erat imperdiet sed. Id neque aliquam vestibulum morbi blandit cursus risus. Sed tempus urna et pharetra pharetra. Leo in vitae turpis massa sed. Sem et tortor consequat id porta. Euismod elementum nisi quis eleifend quam adipiscing vitae. At lectus urna duis convallis convallis tellus id interdum.",
+    },
+    {
+        Id:4,
+        Name: "Wildlife Camping",
+        ImgUrl: "assets/images/partners/partner-4.png",
+        HoverImgUrl: "assets/images/partners/partner-hover-4.png",
+        Content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Proin nibh nisl condimentum id venenatis. In ornare quam viverra orci sagittis eu volutpat odio facilisis. Vel quam elementum pulvinar etiam non quam lacus suspendisse. Interdum posuere lorem ipsum dolor sit amet consectetur adipiscing. Mauris pharetra et ultrices neque ornare aenean. Adipiscing enim eu turpis egestas pretium. Maecenas sed enim ut sem. Mi proin sed libero enim sed. Est placerat in egestas erat imperdiet sed. Id neque aliquam vestibulum morbi blandit cursus risus. Sed tempus urna et pharetra pharetra. Leo in vitae turpis massa sed. Sem et tortor consequat id porta. Euismod elementum nisi quis eleifend quam adipiscing vitae. At lectus urna duis convallis convallis tellus id interdum.",
+    },
+    {
+        Id:5,
+        Name: "Expedition",
+        ImgUrl: "assets/images/partners/partner-5.png",
+        HoverImgUrl: "assets/images/partners/partner-hover-5.png",
+        Content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Proin nibh nisl condimentum id venenatis. In ornare quam viverra orci sagittis eu volutpat odio facilisis. Vel quam elementum pulvinar etiam non quam lacus suspendisse. Interdum posuere lorem ipsum dolor sit amet consectetur adipiscing. Mauris pharetra et ultrices neque ornare aenean. Adipiscing enim eu turpis egestas pretium. Maecenas sed enim ut sem. Mi proin sed libero enim sed. Est placerat in egestas erat imperdiet sed. Id neque aliquam vestibulum morbi blandit cursus risus. Sed tempus urna et pharetra pharetra. Leo in vitae turpis massa sed. Sem et tortor consequat id porta. Euismod elementum nisi quis eleifend quam adipiscing vitae. At lectus urna duis convallis convallis tellus id interdum.",
+    },
+    {
+        Id:6,
+        Name: "Wildlife Nature",
+        ImgUrl: "assets/images/partners/partner-6.png",
+        HoverImgUrl: "assets/images/partners/partner-hover-6.png",
+        Content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Proin nibh nisl condimentum id venenatis. In ornare quam viverra orci sagittis eu volutpat odio facilisis. Vel quam elementum pulvinar etiam non quam lacus suspendisse. Interdum posuere lorem ipsum dolor sit amet consectetur adipiscing. Mauris pharetra et ultrices neque ornare aenean. Adipiscing enim eu turpis egestas pretium. Maecenas sed enim ut sem. Mi proin sed libero enim sed. Est placerat in egestas erat imperdiet sed. Id neque aliquam vestibulum morbi blandit cursus risus. Sed tempus urna et pharetra pharetra. Leo in vitae turpis massa sed. Sem et tortor consequat id porta. Euismod elementum nisi quis eleifend quam adipiscing vitae. At lectus urna duis convallis convallis tellus id interdum.",
+    },
+    {
+        Id:7,
+        Name: "Camping",
+        ImgUrl: "assets/images/partners/partner-7.png",
+        HoverImgUrl: "assets/images/partners/partner-hover-7.png",
+        Content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Proin nibh nisl condimentum id venenatis. In ornare quam viverra orci sagittis eu volutpat odio facilisis. Vel quam elementum pulvinar etiam non quam lacus suspendisse. Interdum posuere lorem ipsum dolor sit amet consectetur adipiscing. Mauris pharetra et ultrices neque ornare aenean. Adipiscing enim eu turpis egestas pretium. Maecenas sed enim ut sem. Mi proin sed libero enim sed. Est placerat in egestas erat imperdiet sed. Id neque aliquam vestibulum morbi blandit cursus risus. Sed tempus urna et pharetra pharetra. Leo in vitae turpis massa sed. Sem et tortor consequat id porta. Euismod elementum nisi quis eleifend quam adipiscing vitae. At lectus urna duis convallis convallis tellus id interdum.",
+    },
+    {
+        Id:8,
+        Name: "Nature Camp",
+        ImgUrl: "assets/images/partners/partner-8.png",
+        HoverImgUrl: "assets/images/partners/partner-hover-8.png",
+        Content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Proin nibh nisl condimentum id venenatis. In ornare quam viverra orci sagittis eu volutpat odio facilisis. Vel quam elementum pulvinar etiam non quam lacus suspendisse. Interdum posuere lorem ipsum dolor sit amet consectetur adipiscing. Mauris pharetra et ultrices neque ornare aenean. Adipiscing enim eu turpis egestas pretium. Maecenas sed enim ut sem. Mi proin sed libero enim sed. Est placerat in egestas erat imperdiet sed. Id neque aliquam vestibulum morbi blandit cursus risus. Sed tempus urna et pharetra pharetra. Leo in vitae turpis massa sed. Sem et tortor consequat id porta. Euismod elementum nisi quis eleifend quam adipiscing vitae. At lectus urna duis convallis convallis tellus id interdum.",
+    },
+]

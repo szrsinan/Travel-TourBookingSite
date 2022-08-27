@@ -1,0 +1,1855 @@
+<!DOCTYPE html>
+<html lang="zxx">
+    
+<!-- Mirrored from templates.envytheme.com/traip/default/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 21 Jul 2022 16:02:49 GMT -->
+<head>
+        <meta charset="utf-8">
+        <meta name="description" content="Traip">
+        <meta name="keywords" content="HTML,CSS,JavaScript">
+        <meta name="author" content="EnvyTheme">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+        <title>Traip - Travel & Tour Booking HTML Template</title>
+        <link rel="icon" href="assets/images/favicon.png" type="image/png" sizes="16x16">
+
+        <!-- bootstrap css -->
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css" media="all" />
+        <!-- animate css -->
+        <link rel="stylesheet" href="assets/css/animate.min.css" type="text/css" media="all" />
+        <!-- owl carousel css -->
+        <link rel="stylesheet" href="assets/css/owl.carousel.min.css"  type="text/css" media="all" />
+        <link rel="stylesheet" href="assets/css/owl.theme.default.min.css"  type="text/css" media="all" />
+        <!-- meanmenu css -->
+        <link rel="stylesheet" href="assets/css/meanmenu.min.css" type="text/css" media="all" />
+        <!-- jquery ui css -->
+        <link rel="stylesheet" href="assets/css/jquery-ui.min.css" type="text/css" media="all" />
+        <!-- selectize css -->
+        <link rel="stylesheet" href="assets/css/selectize.min.css" type="text/css" media="all" />
+        <!-- magnific popup css -->
+        <link rel="stylesheet" href="assets/css/magnific-popup.min.css" type="text/css" media="all" />
+        <!-- icofont css -->
+        <link rel='stylesheet' href='assets/css/icofont.min.css' type="text/css" media="all" />
+        <!-- flaticon css -->
+        <link rel='stylesheet' href='assets/css/flaticon.css' type="text/css" media="all" />
+        <!-- style css -->
+        <link rel="stylesheet" href="assets/css/style.css" type="text/css" media="all" />
+        <!-- responsive css -->
+        <link rel="stylesheet" href="assets/css/responsive.css" type="text/css" media="all" />
+
+        <!-- JavaScript Document -->
+        <script src="Src/angular.min.js"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="Data/Blog.js"></script>
+        <script src="Data/User.js"></script>
+        <script src="Data/Tours.js"></script>
+        <script src="Data/Talks.js"></script>
+        <script src="Data/Places.js"></script>
+        <script src="Data/Hotels.js"></script>
+        <script src="Data/Product.js"></script>
+        <script src="Data/Partners.js"></script>
+        <script src="Data/QuickLinks.js"></script>
+        <script src="Data/ShoppingList.js"></script>
+        <script src="Data/ImportantLinks.js"></script>
+        <script src="Data/TourVideoCategory.js"></script>
+        <script src="Src/TraipTravelService.js"></script>
+        <script src="Src/TraipTravelFactory.js"></script>
+        <script src="Src/Main.js"></script>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+
+    <body>
+        <div ng-app="TraipTravel" ng-controller="TraipTravelController" ng-init="GetData(); SubTotal();">
+            <!-- Modal Search-->
+            <div class="modal fade" id="fgModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Eşleşen Tur</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body"  id="SearchModal">
+                            
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <!-- Modal Search-->
+        <!-- preloader -->
+        <div class="preloader">
+            <div class="preloader-wrapper">
+                <div class="preloader-grid">
+                    <div class="preloader-grid-item preloader-grid-item-1"></div>
+                    <div class="preloader-grid-item preloader-grid-item-2"></div>
+                    <div class="preloader-grid-item preloader-grid-item-3"></div>
+                    <div class="preloader-grid-item preloader-grid-item-4"></div>
+                    <div class="preloader-grid-item preloader-grid-item-5"></div>
+                    <div class="preloader-grid-item preloader-grid-item-6"></div>
+                    <div class="preloader-grid-item preloader-grid-item-7"></div>
+                    <div class="preloader-grid-item preloader-grid-item-8"></div>
+                    <div class="preloader-grid-item preloader-grid-item-9"></div>
+                </div>
+            </div>
+        </div>
+        <!-- .end preloader -->
+        <!-- preloader -->
+        <div class="preloader">
+            <div class="preloader-wrapper">
+                <div class="preloader-grid">
+                    <div class="preloader-grid-item preloader-grid-item-1"></div>
+                    <div class="preloader-grid-item preloader-grid-item-2"></div>
+                    <div class="preloader-grid-item preloader-grid-item-3"></div>
+                    <div class="preloader-grid-item preloader-grid-item-4"></div>
+                    <div class="preloader-grid-item preloader-grid-item-5"></div>
+                    <div class="preloader-grid-item preloader-grid-item-6"></div>
+                    <div class="preloader-grid-item preloader-grid-item-7"></div>
+                    <div class="preloader-grid-item preloader-grid-item-8"></div>
+                    <div class="preloader-grid-item preloader-grid-item-9"></div>
+                </div>
+            </div>
+        </div>
+        <!-- .end preloader -->
+        <!-- Topbar -->
+        <div class="topbar">
+            <div class="container position-relative z-index-1">
+                <div class="row align-items-center">
+                    <div class="topbar-item topbar-item-left">
+                        <ul class="social-list">
+                            <li>
+                                <a href="https://www.facebook.com/" target="_blank"><i class="flaticon-facebook"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://www.instagram.com/" target="_blank"><i class="flaticon-instagram"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/" target="_blank"><i class="flaticon-twitter"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://linkedin.com/" target="_blank"><i class="flaticon-linkedin"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="topbar-item justify-content-end">
+                        <ul class="topbar-action">
+                            <li>
+                                <i class="flaticon-mail"></i>
+                                <a href="https://templates.envytheme.com/cdn-cgi/l/email-protection#e8808d848487a89c9a898198c68b8785"><span class="__cf_email__" data-cfemail="462e232a2a29063234272f366825292b">[email&#160;protected]</span></a>
+                            </li>
+                            <li>
+                                <i class="flaticon-telephone"></i>
+                                <a href="tel:+44-5346-338">+44 5346 338</a>
+                            </li>
+                            <li>
+                                <i class="flaticon-address"></i>
+                                3 Edgar Buildings, England, BA1 2FJ.
+                            </li>
+                        </ul>
+                        <div class="dropdown language-option"> <!-- "language-option" class is used for language switcher -->
+                            <button class="dropdown-toggle" type="button" id="language1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="flaticon-worldwide"></i>
+                                <span class="lang-name"></span>  <!-- "lang-name" class is used for language switcher -->
+                            </button>
+                            <div class="dropdown-menu language-dropdown-menu" aria-labelledby="language1">  <!-- "language-dropdown-menu" class is used for language switcher -->
+                                <a class="dropdown-item" href="#">
+                                    <img src="assets/images/uk.png" alt="flag">
+                                    English
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <img src="assets/images/china.png" alt="flag">
+                                    简体中文
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <img src="assets/images/uae.png" alt="flag">
+                                    العربيّة
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Topbar -->
+        <!-- Navbar --> <!-- Sinan SEZER => Login / Register --> <!-- Kübra SELÇUK => Search-->
+        <div class="fixed-top">
+            <div class="navbar-area">
+                <div class="container">
+                    <div class="mobile-nav">
+                        <a href="index.html" class="mobile-brand">
+                            <img src="assets/images/logo.png" alt="logo" class="logo default-logo">
+                            <img src="assets/images/logo-default-color.png" alt="logo" class="sticky-logo">
+                        </a>
+                        <div class="navbar-option">
+                            <div class="navbar-option-item">
+                                <ul class="navbar-option-list">
+                                    <li class="d-md-none">
+                                        <a href="#" class="mobile-option-dot">
+                                            <i class="flaticon-ellipsis"></i>
+                                        </a>
+                                        <!-- "mobile-option-dropdown" class is used for all options -->
+                                        <div class="mobile-option-dropdown">
+                                            <ul class="navbar-option-list">
+                                                <li>
+                                                    <div class="navbar-language dropdown language-option"> <!-- "language-option" class is used for language switcher -->
+                                                        <button class="dropdown-toggle" type="button" id="language2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            <i class="flaticon-worldwide"></i>
+                                                            <span class="lang-name"></span>  <!-- "lang-name" class is used for language switcher -->
+                                                        </button>
+                                                        <div class="dropdown-menu language-dropdown-menu" aria-labelledby="language2">  <!-- "language-dropdown-menu" class is used for language switcher -->
+                                                            <a class="dropdown-item" href="#">
+                                                                <img src="assets/images/uk.png" alt="flag">
+                                                                English
+                                                            </a>
+                                                            <a class="dropdown-item" href="#">
+                                                                <img src="assets/images/china.png" alt="flag">
+                                                                简体中文
+                                                            </a>
+                                                            <a class="dropdown-item" href="#">
+                                                                <img src="assets/images/uae.png" alt="flag">
+                                                                العربيّة
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="page-search-btn">
+                                                        <i class="flaticon-searching"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="authentication.html">
+                                                        <i class="flaticon-user-1"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="top-sidebar-action">
+                                                        <i class="flaticon-grid"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="d-none d-md-inline-block d-lg-none">
+                                        <div class="navbar-language dropdown language-option"> <!-- "language-option" class is used for language switcher -->
+                                            <button class="dropdown-toggle" type="button" id="language3" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="flaticon-worldwide"></i>
+                                                <span class="lang-name"></span>  <!-- "lang-name" class is used for language switcher -->
+                                            </button>
+                                            <div class="dropdown-menu language-dropdown-menu" aria-labelledby="language3">  <!-- "language-dropdown-menu" class is used for language switcher -->
+                                                <a class="dropdown-item" href="#">
+                                                    <img src="assets/images/uk.png" alt="flag">
+                                                    English
+                                                </a>
+                                                <a class="dropdown-item" href="#">
+                                                    <img src="assets/images/china.png" alt="flag">
+                                                    简体中文
+                                                </a>
+                                                <a class="dropdown-item" href="#">
+                                                    <img src="assets/images/uae.png" alt="flag">
+                                                    العربيّة
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="d-none d-md-inline-block">
+                                        <a href="#" class="page-search-btn">
+                                            <i class="flaticon-searching"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="cart.html">
+                                            <i class="flaticon-shopping-bag"></i>
+                                            <span class="option-badge">2</span>
+                                        </a>
+                                    </li>
+                                    <li class="d-none d-md-inline-block">
+                                        <a href="authentication.html">
+                                            <i class="flaticon-user-1"></i>
+                                        </a>
+                                    </li>
+                                    <li class="d-none d-md-inline-block d-lg-none">
+                                        <a href="#" class="top-sidebar-action">
+                                            <i class="flaticon-grid"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="main-nav">
+                    <div class="container">
+                        <nav class="navbar navbar-expand-md navbar-light">
+                            <a class="navbar-brand" href="index.html">
+                                <img src="assets/images/logo.png" alt="logo" class="logo default-logo">
+                                <img src="assets/images/logo-default-color.png" alt="logo" class="sticky-logo">
+                            </a>
+                            <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
+                                <ul class="navbar-nav mx-auto">
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link dropdown-toggle active">Home</a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a href="#HotelSection" class="nav-link dropdown-toggle">Hotels</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#ShopSection" class="nav-link dropdown-toggle">Shop</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#animateSection" class="nav-link dropdown-toggle">Tours</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#blogSection" class="nav-link dropdown-toggle">Blogs</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" type="btn" data-bs-toggle="modal" data-bs-target="#ContactModal" class="nav-link">Contact</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="navbar-option">
+                                <div class="navbar-option-item">
+                                    <ul class="navbar-option-list">
+                                        <li>
+                                            <a href="" type="button" class="btn"  data-bs-toggle="modal" data-bs-target="#AddToWishlist">
+                                                <i class="flaticon-shopping-bag"></i>
+                                                <span class="option-badge">{{ProductNumber}}</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="navbar-option-item" id="loginregisterbutton">
+                                    <button class="btn main-btn main-btn-arrow" id="NameButton" ng-click="LoginRegisterForm();">{{AccountName}}</button>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Navbar -->
+        <!-- Header -->
+        <header class="header-banner fixed-header-banner">
+            <div class="booking-search">
+                <form>
+                    <div class="booking-search-inputs">
+                        <div class="booking-search-input-item">
+                            <div class="booking-input">
+                                <label>
+                                    <i class="flaticon-searching"></i>
+                                    Search Type
+                                </label>
+                                <select class="travelType" id="travelType">
+                                    <option value="">Select Your Type</option>
+                                    <option value="2">The Package Holiday</option>
+                                    <option value="3">Tours</option>
+                                    <option value="4">Hotels</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="booking-search-input-item">
+                            <div class="booking-input">
+                                <label>
+                                    <i class="flaticon-placeholder-point"></i>
+                                    Where To?
+                                </label>
+                                <select id="location" ng-click="PlaceSearch();">
+                                    <!-- Holiday -->
+                                    <option value="" >Where Are You Going</option>
+                                    <option value="2" class="Holiday">Rome</option>
+                                    <option value="2" class="Holiday">Vatican</option>
+                                    <option value="2" class="Holiday">Milan</option>
+                                    <option value="2" class="Holiday">Helsinki</option>
+                                    <option value="2" class="Holiday">Ibiza</option>
+                                    <option value="2" class="Holiday">Corfu</option>
+                                    <option value="2" class="Holiday">Seville</option>
+                                    <option value="2" class="Holiday">Waradero</option>
+                                    <!-- Tours -->
+                                    <option value="3" class="Tours">Lisbon</option>
+                                    <option value="3" class="Tours">Maldives</option>
+                                    <option value="3" class="Tours">Cuba</option>
+                                    <option value="3" class="Tours">Africa</option>
+                                    <option value="3" class="Tours">Maldives</option>
+                                    <option value="3" class="Tours">Bali</option>
+                                    <!-- Hotels -->
+                                    <option value="4" class="Hotels">Greece</option>
+                                    <option value="4" class="Hotels">Mauritius</option>
+                                    <option value="4" class="Hotels">Maldives</option>
+                                    <option value="4" class="Hotels">England</option>
+                                    <option value="4" class="Hotels">Türkiye</option>
+                                    <option value="4" class="Hotels">Italy</option>
+                                    <option value="4" class="Hotels">Spain</option>
+                                </select>                                  
+                            </div>
+                        </div>
+                        <div class="booking-search-input-item">
+                            <div class="booking-input">
+                                <label>
+                                    <i class="flaticon-calendar"></i>
+                                    When?
+                                </label>
+                                <input type="text" placeholder="Select Your Time" class="datepicker" id="InputDate">
+                            </div>
+                        </div>
+                        <div class="booking-search-input-item">
+                            <div class="booking-input">
+                                <label>
+                                    <i class="flaticon-user-1"></i>
+                                    Guest
+                                </label>
+                                <input type="text" placeholder="Select Number Of Guest" class="guest guest-input">
+                                <div class="guest-popup">
+                                    <div class="guest-popup-item">
+                                        <div class="guest-popup-label">
+                                            <h4>Adults</h4>
+                                            <p>Ages 12 or above</p>
+                                        </div>
+                                        <div class="guest-popup-counter">
+                                            <button class="counter-btn counter-dec">-</button>
+                                            <input type="text" class="counter-input" value="0" id="Guest">
+                                            <button class="counter-btn counter-inc">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="booking-search-button">
+                                <button class="btn main-btn" type="submit" ng-click="Filter();">
+                                    <i class="flaticon-searching"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- header-content -->
+            <div class="container-fluid">
+                <div class="header-content">
+                    <h1>Plan Your Best Holiday With Us & Enjoy</h1>
+                    <a href="#toursSection" class="btn main-btn main-btn-arrow">See All Tour <i class="flaticon-right-arrow"></i></a>
+                </div>
+            </div>
+            <div class="scroll-parallax" id="parallax">
+                <div class="parallax-layer parallax-layer-0 parallax" data-speed="66">
+                    <!-- <img src="assets/images/homepage-1/header-part-5.png" alt="header"> -->
+                </div>
+                <div class="parallax-layer parallax-layer-1 parallax" data-speed="50">
+                    <!-- <img src="assets/images/homepage-1/header-part-4.png" alt="header"> -->
+                </div>
+                <div class="parallax-layer parallax-layer-2 parallax" data-speed="40">
+                    <!-- <img src="assets/images/homepage-1/header-part-3.png" alt="header"> -->
+                </div>
+                <div class="parallax-layer parallax-layer-3 parallax" data-speed="33">
+                    <!-- <img src="assets/images/homepage-1/header-part-2.png" alt="header"> -->
+                </div>
+                <div class="parallax-layer parallax-layer-4 parallax" data-speed="20">
+                    <!-- <img src="assets/images/homepage-1/header-part-1.png" alt="header"> -->
+                </div>
+                <div class="parallax-layer parallax-cover" ></div>
+            </div>
+        </header>
+        <!-- Header -->
+        <!-- Mobile Search -->
+        <div class="mobile-search-wrapper d-lg-none">
+            <div class="mobile-booking-search">
+                <div class="mobile-search-body">
+                    <h3>Search Your Criteria</h3>
+                    <!-- <div class="mobile-search-close">
+                        X
+                    </div> -->
+                    <form action="#">
+                        <div class="mobile-search-criteria">
+                            <div class="mobile-search-item">
+                                <label>
+                                    <i class="flaticon-placeholder-point"></i>
+                                    Where To?
+                                </label>
+                                <select class="location" name="location">
+                                    <option value="">Where Are You Going</option>
+                                    <option value="AL">Alabama</option>
+                                    <option value="AK">Alaska</option>
+                                    <option value="AZ">Arizona</option>
+                                    <option value="AR">Arkansas</option>
+                                    <option value="CA">California</option>
+                                    <option value="CO">Colorado</option>
+                                    <option value="CT">Connecticut</option>
+                                    <option value="DE">Delaware</option>
+                                    <option value="DC">District of Columbia</option>
+                                    <option value="FL">Florida</option>
+                                    <option value="GA">Georgia</option>
+                                    <option value="HI">Hawaii</option>
+                                    <option value="ID">Idaho</option>
+                                    <option value="IL">Illinois</option>
+                                    <option value="IN">Indiana</option>
+                                    <option value="IA">Iowa</option>
+                                    <option value="KS">Kansas</option>
+                                    <option value="KY">Kentucky</option>
+                                    <option value="LA">Louisiana</option>
+                                    <option value="ME">Maine</option>
+                                    <option value="MD">Maryland</option>
+                                    <option value="MA">Massachusetts</option>
+                                    <option value="MI">Michigan</option>
+                                    <option value="MN">Minnesota</option>
+                                    <option value="MS">Mississippi</option>
+                                    <option value="MO">Missouri</option>
+                                    <option value="MT">Montana</option>
+                                    <option value="NE">Nebraska</option>
+                                    <option value="NV">Nevada</option>
+                                    <option value="NH">New Hampshire</option>
+                                    <option value="NJ">New Jersey</option>
+                                    <option value="NM">New Mexico</option>
+                                    <option value="NY">New York</option>
+                                    <option value="NC">North Carolina</option>
+                                    <option value="ND">North Dakota</option>
+                                    <option value="OH">Ohio</option>
+                                    <option value="OK">Oklahoma</option>
+                                    <option value="OR">Oregon</option>
+                                    <option value="PA">Pennsylvania</option>
+                                    <option value="RI">Rhode Island</option>
+                                    <option value="SC">South Carolina</option>
+                                    <option value="SD">South Dakota</option>
+                                    <option value="TN">Tennessee</option>
+                                    <option value="TX">Texas</option>
+                                    <option value="UT">Utah</option>
+                                    <option value="VT">Vermont</option>
+                                    <option value="VA">Virginia</option>
+                                    <option value="WA">Washington</option>
+                                    <option value="WV">West Virginia</option>
+                                    <option value="WI">Wisconsin</option>
+                                    <option value="WY">Wyoming</option>
+                                </select> 
+                            </div>
+                            <div class="mobile-search-item">
+                                <label>
+                                    <i class="flaticon-calendar"></i>
+                                    When?
+                                </label>
+                                <input type="text" placeholder="Select Your Time" class="datepicker">
+                            </div>
+                            <div class="mobile-search-item">
+                                <label>
+                                    <i class="flaticon-plane"></i>
+                                    Travel Type
+                                </label>
+                                <select class="travelType">
+                                    <option value="">Select Your Travel Type</option>
+                                    <option value="2">The Weekend Break</option>
+                                    <option value="3">The Package Holiday</option>
+                                    <option value="4">The Group Tour</option>
+                                </select>
+                            </div>
+                            <div class="mobile-search-item">
+                                <label>
+                                    <i class="flaticon-user-1"></i>
+                                    Guest
+                                </label>
+                                <input type="text" placeholder="Select Number Of Guest" class="guest guest-input">
+                                <div class="guest-popup">
+                                    <div class="guest-popup-item">
+                                        <div class="guest-popup-label">
+                                            <h4>Adults</h4>
+                                            <p>Ages 12 or above</p>
+                                        </div>
+                                        <div class="guest-popup-counter">
+                                            <button class="counter-btn counter-dec">-</button>
+                                            <input type="text" class="counter-input" value="0">
+                                            <button class="counter-btn counter-inc">+</button>
+                                        </div>
+                                    </div>
+                                    <div class="guest-popup-item">
+                                        <div class="guest-popup-label">
+                                            <h4>Adults</h4>
+                                            <p>Ages 12 or above</p>
+                                        </div>
+                                        <div class="guest-popup-counter">
+                                            <button class="counter-btn counter-dec">-</button>
+                                            <input type="text" class="counter-input" value="0">
+                                            <button class="counter-btn counter-inc">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mobile-booking-button">
+                                <button class="btn main-btn full-width" type="submit">
+                                    Search
+                                    <i class="flaticon-searching"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="mobile-search-collapse">
+                    <i class="flaticon-searching"></i>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Search -->
+        <!-- Holiday Planning --> <!-- Mehmet Emin -->
+        <section id="HolidayPlanning" class="holiday-planning-section pt-min-100 pb-70 position-relative">
+            <div class="map-shapes">
+                <div class="map-shape map-shape-1">
+                    <img src="assets/images/shapes/map-1.png" alt="shape">
+                </div>
+                <div class="map-shape map-shape-2">
+                    <img src="assets/images/shapes/map-2.png" alt="shape">
+                </div>
+            </div>
+            <div class="container">
+                <div class="section-title">
+                    <small>The Top Places For</small>
+                    <h2>Planning Your Holiday</h2>
+                </div>
+                <div class="row"> 
+                    <div class="col-sm-6 col-lg-4 col-xl-3 pb-30" ng-repeat="Place in Places">
+                        <div class="card-1">
+                            <div class="card-1-image">
+                                <div class="card-1-overlay">
+                                    <a href="single-destination.html">
+                                        <img src="{{Place.ImgUrl}}" alt="holiday">
+                                    </a>
+                                    <ul class="card-1-entry">
+                                        <li>
+                                            <i class="flaticon-calendar" ng-bind="Place.Date" ></i>
+                                        </li>
+                                        <li>
+                                            <i class="flaticon-user-1" > {{Place.Person}} +</i>
+                                        </li>
+                                        <li>
+                                            <i class="flaticon-placeholder-point" ng-bind="Place.Region"></i>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="card-1-redirect">
+                                    <a href="single-destination.html" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#{{Place.City}}">
+                                        <i class="flaticon-export"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="card-1-content">
+                                <div class="card-1-info">
+                                    <h3>
+                                        <a href="single-destination.html"  type="btn" data-bs-toggle="modal" data-bs-target="#{{Place.City}}">{{Place.City}}</a>
+                                    </h3>
+                                    <div class="card-1-reviews">
+                                        <ul class="review-star">
+                                            <li class="full-star"><i class="flaticon-star"></i></li>
+                                            <li class="full-star"><i class="flaticon-star"></i></li>
+                                            <li class="full-star"><i class="flaticon-star"></i></li>
+                                            <li class="full-star"><i class="flaticon-star"></i></li>
+                                            <li class="full-star"><i class="flaticon-star"></i></li>
+                                        </ul>
+                                        <span ng-bind="Place.TotalReviews"></span>
+                                    </div>
+                                </div>
+                                <p>{{Place.Description.substring(0,80)}}...</p>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="{{Place.City}}" tabindex="-1" aria-hidden="true">
+                            <div class="modal-dialog modal-lg modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <div class="section-title section-title-md">
+                                            <h2>{{Place.City}}, {{Place.Region}}</h2>
+                                            <small>Detailed Info</small>
+                                        </div>
+                                    </div>
+                                    <div class="modal-body" id="Place{{Place.Id}}">
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <div class="card-1-image">
+                                                    <div class="card-1-overlay">
+                                                        <a href="single-destination.html">
+                                                            <img src="{{Place.ImgUrl}}" alt="holiday">
+                                                        </a>
+                                                    </div>
+                                                    <div class="card-1-redirect">
+                                                        <a href="single-destination.html" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#{{Place.City}}">
+                                                            <i class="flaticon-export"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-8 ">
+                                                <p ng-bind="Place.Description"></p>
+                                                <div class="row align-items-end">
+                                                
+                                                    <div class="col-sm-4">
+                                                        <i class="flaticon-calendar" ng-bind="Place.Date" ></i>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <i class="flaticon-user-1" > {{Place.Person}} +</i>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <i class="flaticon-placeholder-point" ng-bind="Place.Region"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Holiday Planning -->
+        <!-- Hotels -- Sinan Sezer -->
+        <div class="container" id="HotelSection">
+            <div class="section-title">
+                <small>Choose Your Destination</small>
+                <h2>Live Where You Want</h2>
+            </div>
+            <div class="row load-more-gallery">
+                <div class="col-sm-6 col-lg-4 pb-30 hotel-more-item" ng-repeat="Hotel in Hotels">
+                    <div class="destination-card">
+                        <div class="destination-card-image">
+                            <a href="" data-bs-toggle="modal" data-bs-target="#{{Hotel.ModalId}}">
+                                <img src="{{Hotel.ImgUrl}}" alt="destination">
+                            </a>
+                        </div>
+                        <div class="destination-card-content">
+                            <div class="destination-card-header">
+                                <h3>{{Hotel.Title}}</h3>
+                                <div class="destination-price">{{Hotel.Price}}<span>/{{Hotel.Period}}</span></div>
+                            </div>
+                            <div class="destination-card-review">
+                                <ul class="review-star">
+                                    <li class="full-star"><i class="flaticon-star"></i></li>
+                                    <li class="full-star"><i class="flaticon-star"></i></li>
+                                    <li class="full-star"><i class="flaticon-star"></i></li>
+                                    <li class="full-star"><i class="flaticon-star"></i></li>
+                                    <li class="full-star"><i class="flaticon-star"></i></li>
+                                </ul>
+                                <span>({{Hotel.Review}} Reviews)</span>
+                            </div>
+                            <p>{{Hotel.Description}}</p>
+                            <div class="destination-redirect">
+                                <a href="" data-bs-toggle="modal" data-bs-target="#{{Hotel.ModalId}}">Explore Tour <i class="flaticon-export"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="{{Hotel.ModalId}}" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog modal-lg modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <div class="section-title section-title-md">
+                                        <h2>{{Hotel.Title}}, {{Hotel.City}}</h2>
+                                        <small>Detailed Info</small>
+                                    </div>
+                                </div>
+                                <div class="modal-body" id="Hotel{{Hotel.Id}}">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="destination-card">
+                                                <div class="destination-card-image">
+                                                        <img src="{{Hotel.ImgUrl}}" alt="destination">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-8">
+                                            <p ng-bind="Hotel.Description"></p>
+                                            <div class="row align-items-end">
+                                            
+                                                <div class="col-sm-4">
+                                                    <i class="flaticon-calendar" ng-bind="Hotel.Period" ></i>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <i class="flaticon-star" > ≈ {{Hotel.Review}} Reviews
+                                                    </i>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <i class="flaticon-placeholder-point" ng-bind="Hotel.City"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center load-more">
+                <button class="btn main-btn main-btn-arrow load-more-btn">Load More <i class="flaticon-right-arrow"></i></button>
+            </div>
+        </div>
+        <!-- Hotels -->
+        <!-- Tour --> <!-- Gizem İZMİR -->
+        <section class="tour-section bg-offwhite pt-100 pb-70 animate-section position-relative overflow-hidden" id="animateSection">
+            <div class="radial-animation-shape radial-animation-shape-active">
+                <img src="assets/images/shapes/compass.png" alt="compass">
+            </div>
+            <div class="container-fluid custom-container-fluid position-relative">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 pb-30">
+                        <div class="max-685 ms-auto me-auto me-lg-0">
+                            <div class="section-title section-title-left about-title">
+                                <small>We Are Specialized In</small>
+                                <h2>Tour & Travel Arrangement</h2>
+                            </div>
+                            <div class="about-content-item">
+                                <div class="about-content-thumb">
+                                    <i class="flaticon-map"></i>
+                                </div>
+                                <div class="about-content-texts">
+                                    <h3>We Can Be A Great Travel Planner For You</h3>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                                </div>
+                            </div>
+                            <div class="about-content-item">
+                                <div class="about-content-thumb">
+                                    <i class="flaticon-compass"></i>
+                                </div>
+                                <div class="about-content-texts">
+                                    <h3>We Guide You All Over The World</h3>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                                </div>
+                            </div>
+                            <div class="text-center text-lg-start">
+                                <button type="button" class="btn main-btn main-btn-arrow" data-bs-toggle="modal" data-bs-target="#tourModal">Discover More<i class="flaticon-right-arrow"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 pb-30">
+                        <div class="about-content-image text-center">
+                            <img src="assets/images/tour-about.png" alt="about">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Tour Modal -->
+            <div class="modal fade" id="tourModal" tabindex="-1" aria-labelledby="tourModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="tourModalLabel">Tour & Travel Arrangement</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="section-title section-title-left about-title">
+                            <small>We Are Specialized In</small>
+                            <h2>Tour & Travel Arrangement</h2>
+                        </div>
+                        <div class="about-content-item">
+                            <div class="about-content-thumb">
+                                <i class="flaticon-map"></i>
+                            </div>
+                            <div class="about-content-texts">
+                                <h3>We Can Be A Great Travel Planner For You</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                            </div>
+                        </div>
+                        <div class="about-content-item">
+                            <div class="about-content-thumb">
+                                <i class="flaticon-compass"></i>
+                            </div>
+                            <div class="about-content-texts">
+                                <h3>We Guide You All Over The World</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Tour Modal End -->
+        </section>
+        <!-- Tour -->
+        <!-- Liked Tour Modals Start --><!-- Mehmet Emin -->
+        <div class="modal fade" id="LikedTourModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="section-title section-title-md row">
+                            <h2 id="TourTitle"></h2>
+                            <div class="col-sm-6">
+                                <i id="TourLength" class="flaticon-calendar"></i>
+                            </div>
+                            <div class="col-sm-6">
+                                <p id="TourPrice" ></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="TourModalBody" class="modal-body row">
+                    <div class="col-4">
+                        <img id="TourImage" src="" alt="">
+                    </div> 
+                    <div class="col-8">
+                        <p id="TourDescription"></p>
+                    </div>   
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Liked Tour Modals End -->
+        <!-- Popular Package --> <!-- Mehmet Emin -->
+        <section class="popular-package-section pt-100 pb-80 line-shape-bg" id="toursSection">
+            <div class="container">
+                <div class="section-title section-title-lg">
+                    <small>Popular Package</small>
+                    <h2>Amazing Tours Liked By The Adventurous</h2>
+                </div>
+            </div>
+            <div class="popular-package-carousel owl-carousel">
+                <div class="item" ng-repeat="Tour in Tours">
+                    <div id="Tour{{Tour.Id}}">
+                        <div class="card-2">
+                            <div class="card-2-image">
+                                <img src="{{Tour.ImgUrl}}" alt="popular package">
+                            </div>
+                            <div class="card-2-content">
+                                <ul class="card-2-entry">
+                                    <li>
+                                        <i class="flaticon-calendar">{{Tour.Length}} Days</i>
+                                    </li>
+                                </ul>
+                                <div class="card-2-info">
+                                    <h3>
+                                        <a href="" type="btn" data-bs-toggle="modal" data-bs-target="#LikedTourModal" ng-click="SendTourData(Tour.Id);">{{Tour.Title}}</a>
+                                    </h3>
+                                    <div class="card-2-info-price">${{Tour.Price}}<span>/per</span></div>
+                                </div>
+                                <p>{{Tour.Description.substring(0,80)}}...</p>
+                                <div class="card-2-footer">
+                                    <div class="card-2-reviews">
+                                        <ul class="review-star">
+                                            <li class="full-star"><i class="flaticon-star"></i></li>
+                                            <li class="full-star"><i class="flaticon-star"></i></li>
+                                            <li class="full-star"><i class="flaticon-star"></i></li>
+                                            <li class="full-star"><i class="flaticon-star"></i></li>
+                                            <li class="full-star"><i class="flaticon-star"></i></li>
+                                        </ul>
+                                        <span>{{Tour.TotalReviews}} Reviews</span>
+                                    </div>
+                                    <div class="card-2-action">
+                                        <a href="" type="btn" data-bs-toggle="modal" data-bs-target="#LikedTourModal" ng-click="SendTourData(Tour.Id);">Explore Tour <i class="flaticon-export"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Popular Package -->
+        <!-- Tour Video --> <!-- Kübra SELÇUK -->
+        <section class="tour-video-section position-relative">
+            <div class="map-shapes">
+                <div class="map-shape map-shape-2 map-shape-top">
+                    <img src="assets/images/shapes/map-2.png" alt="shape">
+                </div>
+            </div>
+            <div class="tour-video-contents">
+                <div class="tour-video-item desk-pad-right-70 order-2 order-lg-1">
+                    <div class="tour-video-bg">
+                        <div class="video-icon">
+                            <a href="https://www.youtube.com/watch?v=pqEO5r-Vlpo" class="video-popup">
+                                <i class="flaticon-play"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="tour-video-item tour-video-item-details pt-100 order-1 order-lg-2 tab-pt-0">
+                    <div class="max-685 m-auto me-lg-0 ms-lg-0">
+                        <div class="section-title section-title-left about-title">
+                            <small>Among The All</small>
+                            <h2>Choose Your Favorite Tour</h2>
+                        </div>
+                        <div class="about-content-item">
+                            <div class="about-content-thumb">
+                                <i class="flaticon-gallery"></i>
+                            </div>
+                            <div class="about-content-texts">
+                                <h3>We Suggest You The Best Tour Collection</h3>
+                                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container tour-category">
+                <div class="row">
+                    <div class="col-6 col-sm-4 col-md-4 col-lg-4 col-xl-2 pt-30" ng-repeat="Category in TourVideoCategory">
+                        <div class="{{Category.CategoryClass}} ">
+                            <a href="tour.html" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#{{Category.ModalId}}" ng-click="CheckTour(Category.Id,Category.ModalName);">
+                                <i class="{{Category.IconClass}}"></i>
+                                <h3>{{Category.Title}}</h3>
+                            </a>
+                        </div>
+                        <div class="modal fade" id="{{Category.ModalId}}" tabindex="-1" aria-labelledby="{{Category.ModalId}}Label" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered modal-xl">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <div class="section-title section-title-lg">
+                                            <small>Popular Packages</small>
+                                            <h2>Amazing Tours Liked By The Adventurous</h2>
+                                        </div>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row" id="{{Category.ModalName}}">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>                    
+                </div>
+            </div>
+            
+        </section>
+        <!-- Tour Video -->
+        <!-- Testimonial --><!-- Kübra SELÇUK -->
+        <section class="testimonial-section image-bg image-bg-1 p-tb-100">
+            <div class="container-fluid position-relative z-index-1">
+                <div class="section-title section-title-white">
+                    <small>Testimonials Of The Traveller</small>
+                    <h2>Some Good Talk About Us</h2>
+                </div>
+                <div class="testimonial-carousel owl-carousel owl-theme">
+                    <div class="item" ng-repeat="Talk in Talks">
+                        <div class="testimonial-card text-center">
+                            <div class="testimoial-quote">
+                                <i class="flaticon-left-quote"></i>
+                            </div>
+                            <p class="testimonial-feedback">{{Talk.Content}}</p>
+                            <div class="testimonial-client-info">
+                                <img src="{{Talk.PersonImgUrl}}" alt="client">
+                                <ul class="review-star">
+                                    <li class="full-star"><i class="flaticon-star"></i></li>
+                                    <li class="full-star"><i class="flaticon-star"></i></li>
+                                    <li class="full-star"><i class="flaticon-star"></i></li>
+                                    <li class="full-star"><i class="flaticon-star"></i></li>
+                                    <li class="full-star"><i class="flaticon-star"></i></li>
+                                </ul>
+                                <h3 class="testimonial-name">{{Talk.Person}}</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="item">
+                        <div class="testimonial-card text-center">
+                            <div class="testimoial-quote">
+                                <i class="flaticon-left-quote"></i>
+                            </div>
+                            <p class="testimonial-feedback">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor</p>
+                            <div class="testimonial-client-info">
+                                <img src="assets/images/clients/client-2.jpg" alt="client">
+                                <ul class="review-star">
+                                    <li class="full-star"><i class="flaticon-star"></i></li>
+                                    <li class="full-star"><i class="flaticon-star"></i></li>
+                                    <li class="full-star"><i class="flaticon-star"></i></li>
+                                    <li class="full-star"><i class="flaticon-star"></i></li>
+                                    <li class="full-star"><i class="flaticon-star"></i></li>
+                                </ul>
+                                <h3 class="testimonial-name">John Abril</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="testimonial-card text-center">
+                            <div class="testimoial-quote">
+                                <i class="flaticon-left-quote"></i>
+                            </div>
+                            <p class="testimonial-feedback">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor</p>
+                            <div class="testimonial-client-info">
+                                <img src="assets/images/clients/client-3.jpg" alt="client">
+                                <ul class="review-star">
+                                    <li class="full-star"><i class="flaticon-star"></i></li>
+                                    <li class="full-star"><i class="flaticon-star"></i></li>
+                                    <li class="full-star"><i class="flaticon-star"></i></li>
+                                    <li class="full-star"><i class="flaticon-star"></i></li>
+                                    <li class="full-star"><i class="flaticon-star"></i></li>
+                                </ul>
+                                <h3 class="testimonial-name">Jane Anderson</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="testimonial-card text-center">
+                            <div class="testimoial-quote">
+                                <i class="flaticon-left-quote"></i>
+                            </div>
+                            <p class="testimonial-feedback">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor</p>
+                            <div class="testimonial-client-info">
+                                <img src="assets/images/clients/client-4.jpg" alt="client">
+                                <ul class="review-star">
+                                    <li class="full-star"><i class="flaticon-star"></i></li>
+                                    <li class="full-star"><i class="flaticon-star"></i></li>
+                                    <li class="full-star"><i class="flaticon-star"></i></li>
+                                    <li class="full-star"><i class="flaticon-star"></i></li>
+                                    <li class="full-star"><i class="flaticon-star"></i></li>
+                                </ul>
+                                <h3 class="testimonial-name">Devit Kotlin</h3>
+                            </div>
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+        </section>
+        <!-- Testimonial -->
+        <!-- Partner --> <!-- Gizem İZMİR -->
+        <section class="partner-section pt-100 pb-70 line-shape-bg line-shape-bg-right position-relative overflow-hidden" id="GetInTouchSection">
+            <div class="map-shapes">
+                <div class="map-shape map-shape-1 map-shape-top map-shape-sm">
+                    <img src="assets/images/shapes/map-1.png" alt="shape">
+                </div>
+            </div>
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 pb-30 desk-pad-right-40">
+                        <div class="section-title about-title section-title-left m-0">
+                            <small>Our Royal Partners</small>
+                            <h2>Meet Our Partners</h2>
+                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+                            <button type="button" class="btn main-btn main-btn-arrow" data-bs-toggle="modal" data-bs-target="#partnerMore">More About Us <i class="flaticon-right-arrow"></i></button>
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="row">
+                            <div class="col-6 col-sm-4 col-md-3 col-lg-3 pb-30" ng-repeat="Partner in Partners">
+                                <div class="partner-image">
+                                    <button type="button" class="p-0" data-bs-toggle="modal" data-bs-target="#partnerModal" ng-click="SendPartnerData(Partner.Id);">
+                                        <img src="{{Partner.ImgUrl}}" alt="partner" class="partner-default">
+                                        <img src="{{Partner.HoverImgUrl}}" alt="partner" class="partner-hover">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Partner Detail Modal Start-->
+        <div class="modal fade" id="partnerModal" tabindex="-1" aria-labelledby="partnerModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="partnerModalLabel">...</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                </div>
+            </div>
+        </div>
+        <!-- Partner Detail Modal End -->
+        <!-- Partner More About Modal Start-->
+        <div class="modal fade" id="partnerMore" tabindex="-1" aria-labelledby="partnerMoreLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="partnerMoreLabel">Meet Our Partners</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="section-title about-title section-title-left m-0">
+                        <small>Our Royal Partners</small>
+                        <h2>Meet Our Partners</h2>
+                        <div class="partner-carousel owl-carousel">
+                            <div class="item" ng-repeat="Partner in Partners">
+                                <div class="partner-image-2">
+                                    <a href="#">
+                                        <img src="{{Partner.ImgUrl}}" alt="partner" class="partner-default">
+                                        <img src="{{Partner.HoverImgUrl}}" alt="partner" class="partner-hover">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Proin nibh nisl condimentum id venenatis. In ornare quam viverra orci sagittis eu volutpat odio facilisis..</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        <!-- Partner More About Modal End -->
+        <!-- Partner -->
+        <!-- Download -->
+        <section class="download-section bg-offwhite position-relative" id="downloadSection">
+            <div class="mini-shapes d-none d-lg-block">
+                <div class="mini-shape mini-shape-1">
+                    <img src="assets/images/shapes/mini-shape-1.png" alt="shape">
+                </div>
+            </div>
+            <div class="container">
+                <div class="row align-items-center align-items-xl-start">
+                    <div class="col-lg-5 position-relative">
+                        <div class="image-position image-position-top tab-pb-30 text-center text-lg-start">
+                            <img src="assets/images/download.png" alt="download">
+                        </div>
+                    </div>
+                    <div class="col-lg-7 pt-100 pb-100 tab-pt-0">
+                        <div class="desk-pad-left-50 section-title section-title-left about-title m-0">
+                            <small>Download Our Mobile App</small>
+                            <h2>Book Your First Tour Through Our Mobile App</h2>
+                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo.</p>
+                            <div class="section-buttons justify-center justify-flex-start">
+                                <a href="" ng-click="NotFound();" class="btn main-btn">Download From Applestore <i class="icofont-brand-appstore"></i></a>
+                                <a href="" ng-click="NotFound();" class="btn main-btn main-btn-red">Download From Playstore <i class="flaticon-play-store"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Download -->
+        <!-- Product --> <!-- Kübra SELÇUK -->
+        <section class="product-section pt-100 pb-100 position-relative" id="ShopSection">
+            <div class="map-shapes">
+                <div class="map-shape map-shape-1">
+                    <img src="assets/images/shapes/map-3.png" alt="shape">
+                </div>
+            </div>
+            <div class="container">
+                <div class="section-title">
+                    <small>We Also Have Many Things To</small>
+                    <h2>Make Your Tour Successful</h2>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-lg-3 pb-30 single-card-rotate" ng-repeat="Product in Products | limitTo:4">
+                        <div class="single-card">
+                            <div class="single-card-image">
+                                <a href="single-product.html">
+                                    <img src="{{Product.ImgUrl}}" alt="product">
+                                </a>
+                                <ul class="single-card-action">
+                                    <li>
+                                        <a href="" class="btn main-btn main-btn-arrow" ng-click="AddToCard(Product.Id);">Add To Cart <i class="flaticon-right-arrow"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="single-card-content">
+                                <h3>
+                                    <a href="single-product.html">{{Product.Title}}</a>
+                                </h3>
+                                <p>$ {{Product.Price}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <a href="products.html" type="button" class="btn main-btn" data-bs-toggle="modal" data-bs-target="#VisitOurOnlineStore">Visit Our Online Store <i class="flaticon-shopping-bag"></i></a>
+                    <div class="modal fade" id="VisitOurOnlineStore" tabindex="-1" aria-labelledby="VisitOurOnlineStoreLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-xl modal-fullscreen-md-down">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <div class="section-title">
+                                        <small>We Also Have Many Things To</small>
+                                        <h2>Make Your Tour Successful</h2>
+                                    </div>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-sm-6 col-lg-3 pb-30 single-card-rotate" ng-repeat="Product in Products">
+                                            <div class="single-card">
+                                                <div class="single-card-image">
+                                                    <a href="single-product.html">
+                                                        <img src="{{Product.ImgUrl}}" alt="product">
+                                                    </a>
+                                                    <ul class="single-card-action">
+                                                        <li>
+                                                            <a href="" class="btn main-btn main-btn-arrow"  ng-click="AddToCard(Product.Id);">Add To Cart <i class="flaticon-right-arrow"></i></a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="single-card-content">
+                                                    <h3>
+                                                        <a href="single-product.html">{{Product.Title}}</a>
+                                                    </h3>
+                                                    <p>$ {{Product.Price}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- AddToWishlist Modal -->
+            <div class="modal fade" id="AddToWishlist" tabindex="-1" aria-labelledby="AddToWishlistLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl modal-fullscreen-md-down">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <div class="section-title" style="margin-bottom:10px;">
+                                <h2>Add To Cart</h2>
+                            </div>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- Cart -->
+                            <section class="cart-section pt-50 pb-70 position-relative">
+                                <div class="map-shapes">
+                                    <div class="map-shape map-shape-2 map-shape-vertical-top">
+                                        <img src="assets/images/shapes/map-2.png" alt="shape">
+                                    </div>
+                                </div>
+                                <div class="container">
+                                    <div class="cart-table">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>Product Thumb</th>
+                                                    <th>Product Name</th>
+                                                    <th>Price</th>
+                                                    <th>Quantity</th>
+                                                    <th>Total</th>
+                                                    <th>Remove</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr ng-repeat="Item in ShoppingList">
+                                                    <td>
+                                                        <div class="product-table-thumb">
+                                                            <img src="{{Item.ImgUrl}}" alt="product">
+                                                        </div>
+                                                    </td>
+                                                    <td>{{Item.Title}}</td>
+                                                    <td class="color-secondary">$ {{Item.Price}}</td>
+                                                    <td>
+                                                        <div class="cart-quantity">
+                                                            <button class="qu-btn dec" ng-click="QuantityDecrease(Item.Id);">-</button>
+                                                            <input type="text" class="qu-input" value="{{Item.Quantity}}">
+                                                            <button class="qu-btn inc" ng-click="QuantityIncrease(Item.Id);">+</button>
+                                                        </div>
+                                                    </td>
+                                                    <td class="color-secondary">$ {{Item.Price*Item.Quantity}}</td>
+                                                    <td class="cancel">
+                                                        <a href="" ng-click="CloseShoppingListItem(Item.Id);"><i class="flaticon-close"></i></a>
+                                                    </td>
+                                                </tr>
+                                                
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="row justify-content-between mt-30">
+                                        <div class="col-sm-6 col-md-7 col-lg-6 pb-30">
+                                            <div class="section-button-group">
+                                                <input type="text" ng-model="TxtInput"></input>
+                                                <a href="#" class="btn main-btn main-btn-red coupon-btn" ng-click="AddCoupon();">Add Coupon</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-5 col-lg-4 pb-30">
+                                            <div class="sub-section-title">
+                                                <h3 class="sub-section-title-heading">Total Cart</h3>
+                                            </div>
+                                            <div class="cart-details">
+                                                <div class="cart-total-box cart-total-box-secondcolor">
+                                                    <div class="cart-total-item">
+                                                        <h4>Subtotal</h4>
+                                                        <p ng-init="SubTotal();">$ {{TotalPrice}}</p>
+                                                    </div>
+                                                    <div class="cart-total-item">
+                                                        <h4>Discount</h4>
+                                                        <p>$ {{Discount}}</p>
+                                                    </div>
+                                                    <div class="cart-total-item">
+                                                        <h4>Total</h4>
+                                                        <p>$ {{TotalPrice-Discount}}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="text-end">
+                                                    <a href="#" class="btn main-btn main-btn-arrow">Checkout <i class="flaticon-right-arrow"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <!-- Cart -->
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- AddToWishlist Modal -->
+        </section>
+        <!-- Product -->
+        <!-- Blog --> <!-- Gizem İZMİR -->
+        <section class="blog-section pb-100 overflow-hidden" id="blogSection">
+            <div class="container position-relative">
+                <div class="mini-shapes d-none d-lg-block">
+                    <div class="mini-shape mini-shape-2">
+                        <img src="assets/images/shapes/mini-shape-2.png" alt="shape">
+                    </div>
+                </div>
+                <div class="section-title">
+                    <small>To Get More Tips And Tricks</small>
+                    <h2>Read Our Daily Blog</h2>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 pb-30 desk-pad-right-50">
+                        <div class="blog-image-card blog-image-card-1" ng-repeat="Blog in Blogs | limitTo: 1">
+                            <div class="blog-card-content" >
+                                <ul class="blog-entry">
+                                    <li>
+                                        <i class="flaticon-calendar"></i>
+                                        {{Blog.Date}}
+                                    </li>
+                                    <li>
+                                        <i class="flaticon-user-1"></i>
+                                        {{Blog.Person}}
+                                    </li>
+                                </ul>
+                                <h3>
+                                    <a type="button" class="btn btn-link text-white p-0" data-bs-toggle="modal" data-bs-target="#blogModal" ng-click="SendBlogData(Blog.Id);">{{Blog.Title}}</a>
+                                </h3>
+                                <p>{{Blog.Content.substring(0,140)}}...</p>
+                                <div class="blog-redirect-link">
+                                    <button type="button" class="btn btn-link text-white p-0" data-bs-toggle="modal" data-bs-target="#blogModal" ng-click="SendBlogData(Blog.Id);">Read Article  <i class="flaticon-export"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="{{Blog.ClassName}}" ng-repeat="Blog in Blogs | limitTo: 3:1">
+                            <div class="blog-card-content">
+                                <ul class="blog-entry">
+                                    <li>
+                                        <i class="flaticon-calendar"></i>
+                                        {{Blog.Date}}
+                                    </li>
+                                    <li>
+                                        <i class="flaticon-user-1"></i>
+                                        {{Blog.Person}}
+                                    </li>
+                                </ul>
+                                <h3>
+                                    <a type="button" class="btn btn-link text-white p-0" data-bs-toggle="modal" data-bs-target="#blogModal" ng-click="SendBlogData(Blog.Id);">{{Blog.Title}}</a>
+                                </h3>
+                                <p>{{Blog.Content.substring(0,140)}}...</p>
+                                <div class="blog-redirect-link">
+                                    <button type="button" class="btn btn-link text-white p-0" data-bs-toggle="modal" data-bs-target="#blogModal" ng-click="SendBlogData(Blog.Id);">Read Article  <i class="flaticon-export"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button type="button" class="btn main-btn main-btn-arrow" data-bs-toggle="modal" data-bs-target="#exploreBlog">Explore Blog <i class="flaticon-right-arrow"></i></button>
+                </div>
+            </div>
+
+            <!-- Blog Detail Modal Start-->
+            <div class="modal fade" id="blogModal" tabindex="-1" aria-labelledby="blogModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="blogModalLabel">...</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Blog Detail Modal End -->
+            <!-- Explore Blog Modal -->
+            <div class="modal fade" id="exploreBlog" tabindex="-1" aria-labelledby="exploreBlogLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exploreBlogLabel">Explore Blogs</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="section-title">
+                                <small>To Get More Tips And Tricks</small>
+                                <h2>Read Our Daily Blog</h2>
+                            </div>
+                            <div class="row load-more-gallery">
+                                <div class="col-md-6 pb-30 more-col-item desk-pad-right-20" ng-repeat="Blog in Blogs | limitTo: 4:1">
+                                    <div class="{{Blog.ClassName}}">
+                                        <div class="blog-card-content">
+                                            <ul class="blog-entry">
+                                                <li>
+                                                    <i class="flaticon-calendar"></i>
+                                                    {{Blog.Date}}
+                                                </li>
+                                                <li>
+                                                    <i class="flaticon-user-1"></i>
+                                                    {{Blog.Person}}
+                                                </li>
+                                            </ul>
+                                            <h3>
+                                                <a type="button" class="btn btn-link text-white p-0" data-bs-toggle="modal" data-bs-target="#blogModal" ng-click="SendBlogData(Blog.Id);">{{Blog.Title}}</a>
+                                            </h3>
+                                            <p>{{Blog.Content.substring(0,140)}}...</p>
+                                            <div class="blog-redirect-link">
+                                                <button type="button" class="btn btn-link text-white p-0" data-bs-toggle="modal" data-bs-target="#blogModal" ng-click="SendBlogData(Blog.Id);">Read Article  <i class="flaticon-export"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Explore Blog Modal -->
+        </section>
+        <!-- Blog -->
+        <!-- Footer --> 
+        <!-- Mehmet Emin -->
+        <footer class="footer footer-bg">
+            <div class="footer-upper pb-70 position-relative">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6 col-lg-3">
+                            <div class="footer-content-item">
+                                <div class="footer-logo">
+                                    <a href="index.html"><img src="assets/images/logo-black.png" alt="logo"></a>
+                                </div>
+                                <ul class="footer-details footer-address">
+                                    <li>
+                                        <i class="flaticon-mail"></i>
+                                        <a href="https://templates.envytheme.com/cdn-cgi/l/email-protection#650d0009090a251117040c154b060a08"><span class="__cf_email__" data-cfemail="bbd3ded7d7d4fbcfc9dad2cb95d8d4d6">[email&#160;protected]</span></a>
+                                    </li>
+                                    <li>
+                                        <i class="flaticon-telephone"></i>
+                                        <a href="tel:+44-5346-338">+44 5346 338</a>
+                                    </li>
+                                    <li>
+                                        <i class="flaticon-address"></i>
+                                        3 Edgar Buildings, England, <br> BA1 2FJ.
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-3">
+                            <div class="footer-content-list footer-content-item desk-pad-left-70">
+                                <div class="footer-content-title">
+                                    <h3>Quick Links</h3>
+                                </div>
+                                <ul class="footer-details footer-list">
+                                    <li ng-repeat="QuickLink in QuickLinks">
+                                        <a {{QuickLink.ModalLink}} href="{{QuickLink.Url}}">{{QuickLink.Title}}</a> 
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-3">
+                            <div class="footer-content-list footer-content-item desk-pad-left-70">
+                                <div class="footer-content-title">
+                                    <h3>Important Links</h3>
+                                </div>
+                                <ul class="footer-details footer-list">
+                                    <li ng-repeat="ImportantLink in ImportantLinks">
+                                        <a href="{{ImportantLink.Url}}">{{ImportantLink.Title}}</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-3">
+                            <div class="footer-content-list footer-content-item desk-pad-left-30">
+                                <div class="footer-content-title">
+                                    <h3>Instafeed</h3>
+                                </div>
+                                <div class="footer-details">
+                                    <ul class="footer-gallery">
+                                        <li>
+                                            <a href="https://www.instagram.com/">
+                                            <img src="assets/images/instafeed/instafeed-1.jpg" alt="insta"></a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.instagram.com/">
+                                            <img src="assets/images/instafeed/instafeed-2.jpg" alt="insta"></a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.instagram.com/">
+                                            <img src="assets/images/instafeed/instafeed-3.jpg" alt="insta"></a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.instagram.com/">
+                                            <img src="assets/images/instafeed/instafeed-4.jpg" alt="insta"></a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.instagram.com/">
+                                            <img src="assets/images/instafeed/instafeed-5.jpg" alt="insta"></a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.instagram.com/">
+                                            <img src="assets/images/instafeed/instafeed-6.jpg" alt="insta"></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-lower">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col footer-lower-item">
+                            <div class="footer-copyright-text">
+                                <p>Copyright ©2021 Traip. Designed & Developed By <a href="https://envytheme.com/" target="_blank">EnvyTheme</a></p>
+                            </div>
+                        </div>
+                        <div class="footer-copyright-text col">
+                            <p style="font-weight:500;">See our  <a href="" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#PrivacyPolicyModal">Privacy & Policy</a></p>
+                        </div>
+                        <div class="col footer-lower-item footer-lower-right">
+                            Follow:
+                            <ul class="social-list">
+                                <li>
+                                    <a href="https://www.facebook.com/" target="_blank"><i class="flaticon-facebook"></i></a>
+                                </li>
+                                <li>
+                                    <a href="https://www.instagram.com/" target="_blank"><i class="flaticon-instagram"></i></a>
+                                </li>
+                                <li>
+                                    <a href="https://twitter.com/" target="_blank"><i class="flaticon-twitter"></i></a>
+                                </li>
+                                <li>
+                                    <a href="https://linkedin.com/" target="_blank"><i class="flaticon-linkedin"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Contact Modal Start -->
+        <div style="margin-top:50px;" class="modal fade" id="ContactModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="section-title about-title">
+                            <small>Contact With Us</small>
+                            <h2>We'll Love To Hear From You</h2>
+                        </div>
+                    </div>
+                    <div class="modal-body row">
+                                <div class="col">
+                                    <form class="contact-form" id="ContactForm">
+                                        <div class="contact-input form-group mb-20">
+                                            <input type="text" name="name" id="name" class="form-control form-input" placeholder="Name*" required data-error="Please Enter Your Name" />
+                                            
+                                        </div>
+                                        <div class="contact-input form-group mb-20">
+                                            <input type="text" name="email" id="email" class="form-control form-input" placeholder="Email Address*" required data-error="Please Enter Your Email" />
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                        <div class="contact-input form-group mb-20">
+                                            <input type="number" name="phone" id="phone" class="form-control form-input" placeholder="Phone No.*" />
+                                        </div>
+                                        <!-- <div class="contact-input form-group mb-20">
+                                            <input type="text" name="subject" id="subject" class="form-control form-input" placeholder="Email Subject*" required data-error="Please Enter Your Subject" />
+                                            <div class="help-block with-errors"></div>
+                                        </div> -->
+                                        <div class="contact-input form-group mb-20">
+                                            <textarea name="message" class="form-control form-input" id="message" rows="4" placeholder="Your Message"></textarea>
+                                        </div>
+                                        <div class="input-checkbox mb-20">
+                                            <input type="checkbox" id="check1">
+                                            <label for="check1">I have read all <a href="terms-condition.html">terms & condition</a> & <a href="privacy-policy.html">privacy policy</a>.</label>
+                                        </div>
+                                        <div>
+                                            <button class="btn main-btn main-btn-arrow" type="submit" ng-click="CheckContactInputs();">Send Message <i class="flaticon-right-arrow"></i></button>
+                                            <div id="msgSubmit"></div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        
+                        </div>   
+                    </div>
+                    
+                </div>
+            </div>
+        </div>        
+        <!-- Contact Modal End -->
+
+        <!-- Privacy&Policy Modal Start -->
+        <div class="modal fade" id="PrivacyPolicyModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="section-title about-title">
+                            <h2>Privacy & Policy</h2>
+                        </div>
+                    </div>
+                    <div class="modal-body row">
+                        <section class="terms-policy-section position-relative">
+                            <div class="map-shapes">
+                                <div class="map-shape map-shape-1 map-shape-top">
+                                    <img src="assets/images/shapes/map-1.png" alt="shape">
+                                </div>
+                                <div class="map-shape map-shape-2 map-shape-vertical-center">
+                                    <img src="assets/images/shapes/map-2.png" alt="shape">
+                                </div>
+                            </div>
+                            <div class="container">
+                                <div class="forum-main-image">
+                                    <img src="assets/images/privacy-policy.jpg" alt="privacy">
+                                </div>
+                                <div class="forum-details">
+                                    <h2>We Provide Service Form 1997</h2>
+                                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, <a href="privacy-policy.html" target="_blank">sed</a> diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
+                                    <h2>Our Special Privacy</h2>
+                                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+                                    <ul class="blog-details-list">
+                                        <li>Lorem ipsum dolor sit amet, consetetur sadipscing elitr</li>
+                                        <li>Similique sunt in culpa qui officia deserunt mollitia animi</li>
+                                    </ul>
+                                    <h2>Our Business Policy</h2>
+                                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>
+                                    <ul class="blog-details-list">
+                                        <li>Lorem ipsum dolor sit amet, consetetur sadipscing elitr</li>
+                                        <li>Similique sunt in culpa qui officia deserunt mollitia animi</li>
+                                    </ul>
+                                    <h2>Our Business Goal</h2>
+                                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam enter I voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At e vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.  sed diam. At vero Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,voluptua.  eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+                                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur</p>
+                                </div>
+                            </div>
+                        </section>
+                        <!-- Terms Policy -->     
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Privacy&Policy Modal End -->
+        
+        
+
+        <!-- Top Sidebar -->
+        <div class="top-sidebar-wrapper">
+            <div class="top-sidebar-modal">
+                <div class="top-sidebar-body">
+                    <div class="topbar-sidebar-header">
+                        <div class="topbar-sidebar-brand">
+                            <a href="index.html">
+                                <img src="assets/images/logo-default-color.png" alt="logo">
+                            </a>
+                        </div>
+                        <div class="topbar-sidebar-close">
+                            <i class="flaticon-close"></i>
+                        </div>
+                    </div>
+                    <div class="topbar-sidebar-item">
+                        <h3>Contact Us</h3>
+                        <ul class="topbar-sidebar-lists">
+                            <li>
+                                <i class="flaticon-mail"></i>
+                                <a href="https://templates.envytheme.com/cdn-cgi/l/email-protection#c5ada0a9a9aa85b1b7a4acb5eba6aaa8"><span class="__cf_email__" data-cfemail="264e434a4a49665254474f560845494b">[email&#160;protected]</span></a>
+                            </li>
+                            <li>
+                                <i class="flaticon-telephone"></i>
+                                <a href="tel:+44-5346-338">+44 5346 338</a>
+                            </li>
+                            <li>
+                                <i class="flaticon-address"></i>
+                                3 Edgar Buildings, England, BA1 2FJ.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="topbar-sidebar-item">
+                        <h3>Follow Us</h3>
+                        <ul class="social-list">
+                            <li>
+                                <a href="https://www.facebook.com/" target="_blank"><i class="flaticon-facebook"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://www.instagram.com/" target="_blank"><i class="flaticon-instagram"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/" target="_blank"><i class="flaticon-twitter"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://linkedin.com/" target="_blank"><i class="flaticon-linkedin"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Top Sidebar -->
+
+        <!-- Search Wrapper -->
+        <div class="searchbar-wrapper">
+            <div class="searchbar-body">
+                <div class="searchbar-close page-searchbar-close">
+                    <i class="flaticon-close"></i>
+                </div>
+                <div class="searchbar-form">
+                    <img src="assets/images/logo.png" alt="logo">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" placeholder="Search*" class="form-control" required>
+                            <button class="btn main-btn" type="submit">Search Now</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Search Wrapper -->
+        
+        <!-- Scroll-top -->
+        <div class="scroll-top" id="scrolltop">
+            <div class="scroll-top-inner">
+                <i class="icofont-long-arrow-up"></i>
+            </div>
+        </div>
+        <!-- Scroll-top -->
+
+
+        <!-- essential js -->
+        <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/jquery-3.6.0.min.js"></script>
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
+        <!-- jquery ui js -->
+        <script src="assets/js/jquery-ui.js"></script>
+        <!-- selectize js -->
+        <script src="assets/js/selectize.min.js"></script>
+        <!-- magnific popup js -->
+        <script src="assets/js/jquery.magnific-popup.min.js"></script>
+        <!-- owl carousel js -->
+        <script src="assets/js/owl.carousel.min.js"></script>
+        <!-- form ajazchimp js -->
+        <script src="assets/js/jquery.ajaxchimp.min.js"></script>
+        <!-- form validator js  -->
+        <script src="assets/js/form-validator.min.js"></script>
+        <!-- contact form js -->
+        <script src="assets/js/contact-form-script.js"></script>
+        <!-- meanmenu js -->
+        <script src="assets/js/jquery.meanmenu.min.js"></script>
+        <!-- main js -->
+        <script src="assets/js/script.js"></script>
+    </div>
+    </body>
+
+<!-- Mirrored from templates.envytheme.com/traip/default/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 21 Jul 2022 16:03:20 GMT -->
+</html>
